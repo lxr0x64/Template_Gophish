@@ -1,4 +1,23 @@
-# Gophish Repository fr version by Kirua6 (Pass And Secure)
+![Logo_GophishFR](https://github.com/PassAndSecure/GophishFR/blob/main/Picture/gophish_purple-1.png)
+
+# GophishFR Template Repository by Kirua6 (Pass And Secure)
+
+Installation avec apt possible, GophishFR sera installé dans `/var/lib`, `/usr/share/`, `/lib/systemd/system/` et un utilisateur dédié `gophishfr` sera créé : 
+```bash
+echo "deb [trusted=yes] https://passandsecure.github.io/GophishFR/repo stable main" | sudo tee /etc/apt/sources.list.d/gophishfr.list
+sudo apt update
+sudo apt install gophishfr
+sudo sed -i 's/^deb/#deb/' /etc/apt/sources.list.d/gophishfr.list
+```
+[(Ne pas oublier l'ouverture des ports --> 80 / 443 / 3333)](https://passandsecure.fr/deploiement_campagne_phishing_gophish_tenant_M365_sur_debian_alma#ports)
+
+Puis lancer GophishFR :
+```bash
+sudo systemctl start gophishfr
+sudo systemctl enable gophishfr
+sudo systemctl status gophishfr
+```
+Récupérer le mot de passe du compte admin dans le status de GophishFR
 
 Lien du tutoriel associé : [Installation et déploiement de Gophish avec un tenant M365 compatible Debian 12 / AlmaLinux 9.4](https://passandsecure.fr/deploiement_campagne_phishing_gophish_tenant_M365_sur_debian_alma)
 
